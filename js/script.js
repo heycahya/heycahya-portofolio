@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.addEventListener("click", () => {
       navToggle.classList.toggle("active");
       navMenu.classList.toggle("active");
+      // Mencegah background scroll saat menu terbuka di HP
       document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto";
     });
 
