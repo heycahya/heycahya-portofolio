@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects | Cahya Sumirat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="global-container nav-wrapper">
+        <a href="index.html" class="nav-logo">HEYCAHYA</a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="projects.html">Work</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a href="assets/documents/cv-cahya.pdf" class="btn-primary btn-nav" target="_blank">Download CV</a>
+          <div class="nav-toggle" id="nav-toggle">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-viewport" style="padding-top: 120px;">
+      <section class="section-padding">
+        <div class="global-container">
+          <div class="section-header-left">
+            <h2 class="section-title">All Creative Works</h2>
+            <p class="section-intro">Kumpulan solusi visual yang dirancang untuk memperkuat identitas brand dan pengalaman digital.</p>
+          </div>
+          
+          <div class="filter-wrapper">
+            <button class="filter-btn active" data-filter="all">All Works</button>
+            <button class="filter-btn" data-filter="branding">Visual Branding</button>
+            <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            <button class="filter-btn" data-filter="sosmed">Social Media</button>
+          </div>
+
+          <div class="project-grid" id="project-list">
+            <a href="projects/gogeulis.html" class="bento-card project-card" data-category="branding">
+              <div class="project-img-wrapper">
+                <img src="assets/images/project-gogeulis.png" alt="GoGeulis" onerror="this.src='https://placehold.co/600x450/f1f5f9/94a3b8?text=GoGeulis'">
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">Branding Identity for GoGeulis</h3>
+                <p class="project-category">Visual Branding</p>
+              </div>
+            </a>
+
+            <a href="projects/titipin.html" class="bento-card project-card" data-category="uiux">
+              <div class="project-img-wrapper">
+                <img src="assets/images/project-titipin.png" alt="TITIPIN" onerror="this.src='https://placehold.co/600x450/f1f5f9/94a3b8?text=TITIPIN'">
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">TITIPIN: Preloved Marketplace</h3>
+                <p class="project-category">UI/UX Design</p>
+              </div>
+            </a>
+
+            <a href="projects/kohesify.html" class="bento-card project-card" data-category="sosmed">
+              <div class="project-img-wrapper">
+                <img src="assets/images/project-kohesify.png" alt="Kohesify" onerror="this.src='https://placehold.co/600x450/f1f5f9/94a3b8?text=Kohesify'">
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">Visual Assets for Kohesify</h3>
+                <p class="project-category">Social Media Design</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
