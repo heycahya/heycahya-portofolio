@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // --- 1. LOGIKA NAVBAR MOBILE ---
+  // ==========================================
+  // 1. LOGIKA NAVBAR MOBILE
+  // ==========================================
   const navToggle = document.getElementById("nav-toggle");
   const navMenu = document.getElementById("nav-menu");
   const navbar = document.getElementById("navbar");
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto";
     });
 
+    // Menutup menu saat salah satu link diklik
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navToggle.classList.remove("active");
@@ -22,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 2. LOGIKA EFEK SCROLL NAVBAR ---
+  // ==========================================
+  // 2. LOGIKA EFEK SCROLL NAVBAR
+  // ==========================================
   if (navbar) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 20) {
@@ -33,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. LOGIKA VIEW ALL & FILTER PROJECT ---
+  // ==========================================
+  // 3. LOGIKA VIEW ALL & FILTER PROJECT
+  // ==========================================
   const viewAllBtn = document.getElementById("view-all-btn");
   const viewAllCta = document.getElementById("view-all-cta");
   const projectFilter = document.getElementById("project-filter");
@@ -61,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filterButtons.length > 0) {
     filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        // Pindahkan gaya (warna hitam) ke tombol yang sedang aktif
+        // Pindahkan gaya (warna solid) ke tombol yang sedang aktif
         filterButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
 
