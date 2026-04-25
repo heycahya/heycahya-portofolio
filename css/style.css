@@ -94,7 +94,7 @@ nav.scrolled .global-container { padding: 0 30px; }
 .nav-toggle span { width: 24px; height: 2px; background: var(--text-main); transition: 0.3s; }
 .mobile-only { display: none; }
 
-/* --- HERO SECTION --- */
+/* --- HOMEPAGE SPECIFIC (Hero, About, Expertise, dll) --- */
 .main-viewport { padding-top: 0; } 
 #hero {
     position: relative; 
@@ -117,8 +117,21 @@ nav.scrolled .global-container { padding: 0 30px; }
 .hero-sub { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 40px; max-width: 550px; }
 .hero-btns-center { display: flex; gap: 16px; justify-content: center; }
 
-/* --- ABOUT ME --- */
+/* Grid Umum (About, Expertise, Projects) */
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+/* Komponen Card */
+.project-card { padding: 0; text-decoration: none; transition: transform 0.3s ease; background-color: var(--bg-card); display: block;}
+.project-card:hover { transform: translateY(-4px); border-color: #d1d5db; }
+.project-img-wrapper { width: 100%; aspect-ratio: 4/3; border-bottom: 1px solid var(--border); background: var(--bg-page);}
+.project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.project-info { padding: 24px; }
+.project-title { font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+.project-category { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+/* --- ABOUT ME --- */
 .bento-card { display: flex; flex-direction: column; justify-content: space-between; }
 .bento-visual-bottom { margin-top: 30px; position: relative; }
 .status-badge { position: absolute; top: 16px; left: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.05); padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--text-main); box-shadow: 0 4px 10px rgba(0,0,0,0.05); backdrop-filter: blur(5px); }
@@ -134,7 +147,6 @@ nav.scrolled .global-container { padding: 0 30px; }
 .stat-box p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
 /* --- EXPERTISE --- */
-.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .expertise-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; background-color: var(--bg-card); }
 .exp-text { padding: 30px; flex: 1; }
 .exp-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em;}
@@ -158,14 +170,6 @@ nav.scrolled .global-container { padding: 0 30px; }
 .workflow-text p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
 /* --- PROJECTS --- */
-.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.project-card { padding: 0; text-decoration: none; transition: transform 0.3s ease; background-color: var(--bg-card); display: block;}
-.project-card:hover { transform: translateY(-4px); border-color: #d1d5db; }
-.project-img-wrapper { width: 100%; aspect-ratio: 4/3; border-bottom: 1px solid var(--border); background: var(--bg-page);}
-.project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.project-info { padding: 24px; }
-.project-category { font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; display: block;}
-.project-title { font-size: 16px; font-weight: 600; line-height: 1.4; color: var(--text-main); margin: 0; }
 .projects-cta { text-align: center; margin-top: 40px; }
 
 /* --- BIG CTA --- */
@@ -255,17 +259,56 @@ nav.scrolled .global-container { padding: 0 30px; }
 /* Showcase Visual Area */
 .showcase-list { display: flex; flex-direction: column; gap: 24px; }
 .showcase-item img { width: 100%; border-radius: var(--radius-card); border: 1px solid var(--border); display: block; }
-.image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
 /* Teks Cerita (Content Block) */
 .content-block { text-align: left; margin-top: 20px; }
 .content-block h3 { font-size: 22px; margin-bottom: 16px; letter-spacing: -0.01em; color: var(--text-main); }
 .content-block p { line-height: 1.8; color: var(--text-muted); margin-bottom: 24px; font-size: 16px; }
 
-/* CTA Inline (Bawah Project) */
-.cta-inline { text-align: left; padding: 60px 0 20px; border-top: 1px solid var(--border); }
-.cta-inline h4 { font-size: 28px; margin-bottom: 12px; font-weight: 700; color: var(--text-main); }
-.cta-inline p { color: var(--text-muted); margin-bottom: 30px; font-size: 18px; }
+/* --- PREMIUM CTA BOX (Bawah Project) --- */
+.cta-premium-box {
+    background-color: var(--text-main);
+    color: var(--bg-card);
+    padding: 50px 60px;
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.cta-premium-content {
+    max-width: 60%;
+    text-align: left;
+}
+.cta-premium-content h4 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+.cta-premium-content p {
+    color: #a1a1aa;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.6;
+}
+.btn-cta-dark {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 16px 36px;
+    border-radius: 50px; 
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.btn-cta-dark:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(255,255,255,0.15);
+}
 
 
 /* ========================================= */
@@ -301,6 +344,17 @@ nav.scrolled .global-container { padding: 0 30px; }
     /* Project Detail HP Layout */
     .project-meta { flex-direction: column; align-items: flex-start; gap: 20px; }
     .share-btn { margin-left: 0; width: 100%; justify-content: center; }
-    .image-grid-2 { grid-template-columns: 1fr; }
     .detail-title { font-size: var(--text-xl); }
+
+    /* Responsive CTA Premium Box */
+    .cta-premium-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+        gap: 30px;
+    }
+    .cta-premium-content {
+        max-width: 100%;
+        text-align: center;
+    }
 }
