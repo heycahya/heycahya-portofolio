@@ -111,16 +111,7 @@ padding: 60px 20px;
 overflow: hidden;
 }
 
-/* Sengaja dikosongkan untuk di-custom manual */
-.hero-bg-container {
-position: absolute; 
-top: 0; 
-left: 0; 
-width: 100%; 
-height: 100%; 
-z-index: 1;
-}
-
+.hero-bg-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 .hero-wrapper { position: relative; z-index: 10; display: flex; justify-content: center; text-align: center; width: 100%; }
 .hero-content-center { max-width: 800px; display: flex; flex-direction: column; align-items: center; }
 
@@ -131,28 +122,11 @@ z-index: 1;
 /* --- ABOUT ME --- */
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .bento-card { display: flex; flex-direction: column; justify-content: space-between; }
-
 .bento-visual-bottom { margin-top: 30px; position: relative; }
-.status-badge { 
-position: absolute; top: 16px; left: 16px; z-index: 5;
-display: inline-flex; align-items: center; gap: 8px; 
-background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.05); 
-padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; 
-color: var(--text-main); box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-backdrop-filter: blur(5px);
-}
+.status-badge { position: absolute; top: 16px; left: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.05); padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--text-main); box-shadow: 0 4px 10px rgba(0,0,0,0.05); backdrop-filter: blur(5px); }
 .dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green);}
 
-/* Background dikosongkan untuk di-custom manual */
-.profile-img-bottom { 
-width: 100%; 
-aspect-ratio: 1 / 1; 
-object-fit: cover; 
-border-radius: 16px; 
-border: 1px solid var(--border); 
-background-color: var(--bg-page);
-margin-bottom: 20px;
-}
+.profile-img-bottom { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; border: 1px solid var(--border); background-color: var(--bg-page); margin-bottom: 20px; }
 
 .bento-title { font-size: var(--text-xl); font-weight: 700; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
 .bento-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
@@ -175,16 +149,7 @@ margin-bottom: 20px;
 /* --- TOOLS --- */
 .tools-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
 .tool-item { padding: 16px 24px; display: flex; align-items: center; gap: 16px; background-color: var(--bg-card); }
-
-/* Pembaruan Ikon Tools dengan sudut membulat */
-.tool-icon { 
-width: 44px; 
-height: 44px; 
-object-fit: cover; 
-border-radius: 10px; 
-overflow: hidden; 
-border: 1px solid var(--border);
-}
+.tool-icon { width: 44px; height: 44px; object-fit: cover; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .tool-item span { font-size: 16px; font-weight: 600; color: var(--text-main); }
 
 /* --- WORKFLOW --- */
@@ -231,34 +196,20 @@ border: 1px solid var(--border);
 .filter-btn { padding: 8px 18px; border-radius: 50px; border: 1px solid var(--border); background: var(--bg-card); cursor: pointer; transition: 0.3s; font-size: 14px; font-weight: 500; color: var(--text-muted); }
 .filter-btn.active, .filter-btn:hover { background: var(--text-main); color: var(--bg-card); border-color: var(--text-main); }
 
-/* Class utility untuk menyembunyikan elemen via JS */
 .element-hidden { display: none !important; }
 .project-card.hide { display: none !important; }
 
 /* ========================================= */
-/* --- PROJECT DETAIL PAGE LAYOUT --- */
+/* --- PROJECT DETAIL PAGE LAYOUT (F-PATTERN)--- */
 /* ========================================= */
 .project-detail-wrapper { 
-    display: grid; 
-    grid-template-columns: 1fr 350px; 
-    gap: 60px; 
-    margin-top: 40px; 
-    align-items: start; 
-}
-.project-main-content { 
+    max-width: 800px; /* Lebar sempit untuk artikel */
+    margin: 40px auto 0 auto; 
     display: flex; 
     flex-direction: column; 
-    gap: 40px; 
-}
-.project-sidebar { 
-    position: sticky; 
-    top: 100px; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 24px; 
+    gap: 50px; 
 }
 
-/* Navigasi Back */
 .back-link { 
     display: inline-flex; 
     align-items: center; 
@@ -269,83 +220,66 @@ border: 1px solid var(--border);
     margin-bottom: 30px; 
     transition: 0.3s; 
 }
-.back-link:hover { 
-    color: var(--text-main); 
-    transform: translateX(-5px); 
-}
+.back-link:hover { color: var(--text-main); transform: translateX(-5px); }
 
-/* Tipografi Detail */
-.detail-title { 
-    font-size: var(--text-xxl); 
-    margin-bottom: 8px; 
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-}
-.detail-category { 
-    color: var(--text-muted); 
-    font-size: 18px; 
-    margin-bottom: 30px; 
-    font-weight: 500;
-}
+/* Header Rata Kiri */
+.detail-header { text-align: left; }
+.detail-category { color: var(--text-muted); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 12px; }
+.detail-title { font-size: var(--text-xxl); margin-bottom: 0; line-height: 1.2; letter-spacing: -0.02em; }
 
-/* Layout Gambar Showcase */
-.showcase-list { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 24px; 
+/* Metadata Rata Kiri dengan Tombol Share */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    justify-content: flex-start;
+    align-items: center;
 }
-.showcase-item img { 
-    width: 100%; 
-    border-radius: var(--radius-card); 
-    border: 1px solid var(--border); 
-    background-color: var(--bg-page);
-}
+.meta-item span { display: block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 6px; }
+.meta-item p { font-weight: 600; color: var(--text-main); font-size: 15px; }
 
-/* Layout Teks Cerita */
-.content-block h3 { 
-    font-size: 22px; 
-    margin-bottom: 16px; 
-    letter-spacing: -0.01em;
+/* Tombol Share */
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-btn);
+    background: transparent;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: auto; /* Dorong tombol share ke kanan di layar besar */
 }
-.content-block p { 
-    line-height: 1.8; 
-    color: var(--text-muted); 
-    margin-bottom: 32px; 
-    font-size: 16px;
-}
+.share-btn:hover { background: var(--bg-page); }
 
-/* Desain Sidebar Box */
-.sidebar-box { 
-    background: var(--bg-card); 
-    padding: 32px; 
-    border-radius: var(--radius-card); 
-    border: 1px solid var(--border); 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-}
-.info-list { 
-    list-style: none; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-}
-.info-item span { 
-    display: block; 
-    font-size: 13px; 
-    color: var(--text-muted); 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-}
-.info-item p { 
-    font-weight: 600; 
-    color: var(--text-main); 
-    font-size: 16px;
-}
+/* Susunan Gambar */
+.showcase-list { display: flex; flex-direction: column; gap: 24px; }
+.showcase-item img { width: 100%; border-radius: var(--radius-card); border: 1px solid var(--border); background-color: var(--bg-page); }
 
-/* --- RESPONSIVE MOBILE --- */
+/* Teks Cerita Rata Kiri */
+.content-block { text-align: left; }
+.content-block h3 { font-size: 22px; margin-bottom: 16px; letter-spacing: -0.01em; }
+.content-block p { line-height: 1.8; color: var(--text-muted); margin-bottom: 32px; font-size: 16px; }
+
+/* CTA Opsi B (Inline) */
+.cta-inline {
+    text-align: left;
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+}
+.cta-inline h4 { font-size: 24px; margin-bottom: 12px; color: var(--text-main); letter-spacing: -0.01em; }
+.cta-inline p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
+
+/* Responsif Mobile */
 @media (max-width: 968px) {
-    /* Navbar Mobile */
     nav.scrolled { width: 95%; top: 10px; }
     .btn-nav { display: none; } 
     .nav-toggle { display: flex; } 
@@ -361,19 +295,18 @@ border: 1px solid var(--border);
     .nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(-45deg); }
     .nav-toggle.active span:nth-child(2) { opacity: 0; }
     .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(45deg); }
-    
-    /* Layout Utama Mobile */
+
     #hero { width: calc(100% - 32px); margin-top: 90px; min-height: 70vh; border-radius: 24px; padding: 40px 20px;}
     .hero-btns-center { flex-direction: column; width: 100%; }
-    
+
     .bento-grid, .expertise-grid, .project-grid { grid-template-columns: 1fr; }
     .workflow-item { flex-direction: column; gap: 16px; padding: 30px 20px;}
     .cta-btns { flex-direction: column; }
     .footer-top { flex-direction: column; gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
 
-    /* Layout Halaman Detail Mobile */
-    .project-detail-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    .project-sidebar { position: static; }
+    /* Halaman Detail Mobile */
+    .project-meta { flex-direction: column; gap: 20px; align-items: flex-start; }
+    .share-btn { margin-left: 0; width: 100%; justify-content: center; }
     .detail-title { font-size: var(--text-xl); }
 }

@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ==========================================
-  // 1. LOGIKA NAVBAR MOBILE
-  // ==========================================
+  // --- 1. LOGIKA NAVBAR MOBILE ---
   const navToggle = document.getElementById("nav-toggle");
   const navMenu = document.getElementById("nav-menu");
   const navbar = document.getElementById("navbar");
@@ -11,11 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.addEventListener("click", () => {
       navToggle.classList.toggle("active");
       navMenu.classList.toggle("active");
-      // Mencegah background scroll saat menu terbuka di HP
       document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto";
     });
 
-    // Menutup menu saat salah satu link diklik
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navToggle.classList.remove("active");
@@ -25,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
-  // 2. LOGIKA EFEK SCROLL NAVBAR
-  // ==========================================
+  // --- 2. LOGIKA EFEK SCROLL NAVBAR ---
   if (navbar) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 20) {
@@ -38,9 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
-  // 3. LOGIKA VIEW ALL & FILTER PROJECT
-  // ==========================================
+  // --- 3. LOGIKA VIEW ALL & FILTER PROJECT ---
   const viewAllBtn = document.getElementById("view-all-btn");
   const viewAllCta = document.getElementById("view-all-cta");
   const projectFilter = document.getElementById("project-filter");
@@ -48,44 +40,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const allProjectCards = document.querySelectorAll(".project-card");
 
-  // A. Aksi ketika tombol "View All Projects" diklik
   if (viewAllBtn) {
     viewAllBtn.addEventListener("click", () => {
-      // 1. Munculkan menu filter kategori (Hapus class element-hidden)
       if (projectFilter) projectFilter.classList.remove("element-hidden");
-      
-      // 2. Munculkan semua kartu project tambahan yang tadi disembunyikan
       if (extraProjects) {
         extraProjects.forEach(card => card.classList.remove("element-hidden"));
       }
-      
-      // 3. Sembunyikan tombol "View All" itu sendiri agar tidak mengganggu
       if (viewAllCta) viewAllCta.style.display = "none";
     });
   }
 
-  // B. Aksi ketika tombol Filter Kategori (All, Branding, dll) diklik
   if (filterButtons.length > 0) {
     filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        // Pindahkan gaya (warna solid) ke tombol yang sedang aktif
         filterButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
-
         const filterValue = button.getAttribute("data-filter");
 
-        // Saring (filter) kartu proyek berdasarkan atribut data-category
         if (allProjectCards) {
           allProjectCards.forEach(card => {
             const category = card.getAttribute("data-category");
-            
             if (filterValue === "all" || category === filterValue) {
-              card.classList.remove("hide"); // Munculkan kartu
+              card.classList.remove("hide"); 
             } else {
-              card.classList.add("hide");    // Sembunyikan kartu
+              card.classList.add("hide");
             }
           });
         }
+      });
+    });
+  }
+
+  // --- 4. LOGIKA TOMBOL SHARE (COPY LINK) ---
+  const shareBtn = document.getElementById("share-btn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+      // Menyalin URL halaman saat ini ke clipboard
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const originalText = shareBtn.innerHTML;
+        // Ubah teks sementara jadi "Tersalin!"
+        shareBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Tautan Tersalin!`;
+        
+        // Kembalikan teks setelah 2 detik
+        setTimeout(() => {
+          shareBtn.innerHTML = originalText;
+        }, 2000);
       });
     });
   }
