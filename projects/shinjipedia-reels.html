@@ -1,137 +1,291 @@
 <!doctype html>
 <html lang="id">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Name - Portfolio Cahya Sumirat</title>
-    <meta name="description" content="Detail project portfolio Cahya Sumirat." />
-    
+    <title>Shinjipedia Reels - Portfolio Cahya Sumirat</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../css/style.css" />
-</head>
-<body style="padding-top: 120px;">
+    <style>
+      /* Floating Navigation */
+      .floating-nav {
+        position: fixed;
+        top: 30px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        pointer-events: none;
+      }
 
-    <nav id="navbar" class="scrolled">
-        <div class="global-container nav-wrapper">
-            <a href="../index.html" class="nav-logo">HEYCAHYA</a>
-            <div class="nav-menu" id="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#expertise">Expertise</a></li>
-                    <li><a href="../index.html#projects">Work</a></li>
-                    <li class="mobile-only">
-                        <a href="../assets/documents/cv-cahya.pdf" class="btn-primary" style="width: 100%;" target="_blank">Download CV</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-actions">
-                <a href="../assets/documents/cv-cahya.pdf" class="btn-primary btn-nav" target="_blank">Download CV</a>
-                <div class="nav-toggle" id="nav-toggle">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
+      .nav-btn-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: auto;
+      }
 
-    <main class="global-container">
-        <a href="../index.html#projects" class="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Back to Projects
+      .btn-floating {
+        width: 48px;
+        height: 48px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        color: #18181b;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #e4e4e7;
+      }
+
+      .btn-floating:hover {
+        transform: translateY(-2px);
+        background: #f4f4f5;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Premium Dark Conclusion Box */
+      .project-conclusion-box {
+        margin-top: 80px;
+        padding: 80px 40px;
+        background-color: #09090b;
+        border: 1px solid #27272a;
+        border-radius: 32px;
+        text-align: center;
+      }
+
+      .conclusion-header {
+        max-width: 640px;
+        margin: 0 auto 40px;
+      }
+
+      .conclusion-header h4 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+      }
+
+      .conclusion-header p {
+        font-size: 17px;
+        color: #a1a1aa;
+        line-height: 1.7;
+      }
+
+      /* Button Group Logic */
+      .conclusion-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      /* Primary: WhatsApp */
+      .btn-primary-light {
+        background-color: #ffffff;
+        color: #09090b;
+      }
+
+      .btn-primary-light:hover {
+        background-color: #f4f4f5;
+        transform: translateY(-2px);
+      }
+
+      /* Secondary: Back to Projects */
+      .btn-secondary-dark {
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #3f3f46;
+      }
+
+      .btn-secondary-dark:hover {
+        background-color: #18181b;
+        border-color: #71717a;
+        transform: translateY(-2px);
+      }
+
+      /* Lite Footer */
+      .footer-lite {
+        padding: 60px 0 40px;
+        text-align: center;
+      }
+
+      .footer-lite p {
+        font-size: 13px;
+        color: #71717a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Navigation -->
+    <div class="floating-nav">
+      <div class="global-container nav-btn-wrapper">
+        <a
+          href="../index.html#projects"
+          class="btn-floating"
+          title="Kembali ke Proyek"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
         </a>
+        <div
+          class="btn-floating nav-toggle"
+          id="nav-toggle"
+          style="cursor: pointer"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+    </div>
 
-        <div class="project-detail-wrapper">
-            
-            <section class="project-main-content">
-                <header>
-                    <h1 class="detail-title">Nama Project Keren Disini</h1>
-                    <p class="detail-category">Kategori Project</p>
-                </header>
+    <main class="global-container" style="padding-top: 80px">
+      <div class="project-detail-wrapper">
+        <header class="detail-header">
+          <span class="detail-category">Social Media Reels</span>
+          <h1 class="detail-title">Shinjipedia - Social Media Reels</h1>
+        </header>
 
-                <div class="showcase-list">
-                    <div class="showcase-item">
-                        <img src="https://placehold.co/1200x800/e2e8f0/64748b?text=Hero+Image+Utama" alt="Hero Project">
-                    </div>
-                </div>
-
-                <article class="content-block">
-                    <h3>Project Overview</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    
-                    <h3>The Solution</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus.</p>
-                </article>
-
-                <div class="showcase-list">
-                    <div class="showcase-item">
-                        <img src="https://placehold.co/1200x800/e2e8f0/64748b?text=Mockup+Image+01" alt="Detail 1">
-                    </div>
-                    <div class="showcase-item">
-                        <img src="https://placehold.co/1200x800/e2e8f0/64748b?text=Mockup+Image+02" alt="Detail 2">
-                    </div>
-                </div>
-            </section>
-
-            <aside class="project-sidebar">
-                
-                <div class="sidebar-box">
-                    <ul class="info-list">
-                        <li class="info-item"><span>Year</span><p>2025 - 2026</p></li>
-                        <li class="info-item"><span>Role</span><p>Graphic Designer</p></li>
-                        <li class="info-item"><span>Tools</span><p>Figma, Illustrator</p></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-box">
-                    <h4 style="margin-bottom: 16px; font-size: 18px;">Let's work together!</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">Tertarik membuat desain serupa untuk brand Anda? Mari diskusikan ide Anda.</p>
-                    <a href="https://wa.me/6283101815232" class="btn-primary btn-full-width" target="_blank">Chat via WhatsApp</a>
-                </div>
-                
-            </aside>
+        <div class="project-meta">
+          <div class="meta-item">
+            <span>Year</span>
+            <p>2025</p>
+          </div>
+          <div class="meta-item">
+            <span>Role</span>
+            <p>Creative Strategist & Content Editor</p>
+          </div>
+          <div class="meta-item">
+            <span>Tools</span>
+            <p>Capcut, Canva</p>
+          </div>
+          <button class="share-btn" id="share-btn">Bagikan</button>
         </div>
 
-        <section style="margin-top: 100px; padding-bottom: 80px; border-top: 1px solid var(--border); padding-top: 60px;">
-            <h3 class="section-title" style="margin-bottom: 40px;">More Like This</h3>
-            <div class="project-grid">
-                
-                <a href="#" class="bento-card project-card">
-                    <div class="project-img-wrapper"><img src="https://placehold.co/600x450/f1f5f9/94a3b8?text=Project+Lain+1" alt="Dummy 1"></div>
-                    <div class="project-info"><h3 class="project-title">Project Rekomendasi 1</h3><p class="project-category">Kategori Sama</p></div>
-                </a>
-                
-                <a href="#" class="bento-card project-card">
-                    <div class="project-img-wrapper"><img src="https://placehold.co/600x450/f1f5f9/94a3b8?text=Project+Lain+2" alt="Dummy 2"></div>
-                    <div class="project-info"><h3 class="project-title">Project Rekomendasi 2</h3><p class="project-category">Kategori Sama</p></div>
-                </a>
+        <!-- Image Showcase -->
+        <div class="showcase-list">
+          <div class="showcase-item">
+            <img src="https://placehold.co/1200x800/e2e8f0/64748b?" />
+          </div>
+          <div class="showcase-item">
+            <img src="https://placehold.co/1200x800/e2e8f0/64748b?" />
+          </div>
+          <div class="showcase-item">
+            <img src="https://placehold.co/1200x800/e2e8f0/64748b?" />
+          </div>
+        </div>
 
-                <a href="#" class="bento-card project-card">
-                    <div class="project-img-wrapper"><img src="https://placehold.co/600x450/f1f5f9/94a3b8?text=Project+Lain+3" alt="Dummy 3"></div>
-                    <div class="project-info"><h3 class="project-title">Project Rekomendasi 3</h3><p class="project-category">Kategori Sama</p></div>
-                </a>
+        <article
+          class="content-block"
+          style="
+            border-top: 1px solid #e4e4e7;
+            padding-top: 40px;
+            margin-top: 40px;
+          "
+        >
+          <h3>Project Overview</h3>
+          <p>
+            Reels menjadi garda terdepan dalam strategi konten Shinjipedia.
+            Tantangannya adalah mengemas informasi yang padat menjadi video
+            durasi singkat yang mampu mempertahankan retention rate audiens dari
+            detik pertama hingga akhir, tanpa menghilangkan nilai edukatif dan
+            hiburan dari konten tersebut.
+          </p>
 
-            </div>
+          <h3>The Solution</h3>
+          <p>
+            Solusi desain dieksekusi dengan membangun sistem manajemen konten
+            berbasis 4 Pilar Strategis (To Sell, To Inform, To Educate, & Gaming
+            Experience) untuk menjaga variasi dan keterikatan audiens.
+          </p>
+          <p>
+            Strategic Content Framework: Saya mengelola produksi konten mulai
+            dari tahap brainstorming hingga penyusunan script yang terstruktur.
+            Kerangka konten disusun dengan alur Hook (menarik perhatian dalam 3
+            detik pertama), Body (menyampaikan inti pesan secara efisien), dan
+            CTA (mengarahkan interaksi audiens).
+          </p>
+        </article>
+
+        <!-- Premium Dark Conclusion Box -->
+        <section class="project-conclusion-box">
+          <div class="conclusion-header">
+            <h4>Saya siap membantu brand-mu to the #nextlevel</h4>
+            <p>
+              Mari berkolaborasi untuk mentransformasi konsep bisnis Anda
+              menjadi desain yang fungsional, terstruktur, dan memiliki daya
+              tarik visual yang kuat.
+            </p>
+          </div>
+          <div class="conclusion-actions">
+            <a
+              href="https://wa.me/6287723143269"
+              target="_blank"
+              class="btn-action btn-primary-light"
+            >
+              Discuss Project
+            </a>
+            <a
+              href="../index.html#projects"
+              class="btn-action btn-secondary-dark"
+            >
+              Back to Projects
+            </a>
+          </div>
         </section>
+      </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="global-container">
-            <div class="footer-top">
-                <div class="footer-brand"><h2>HEYCAHYA</h2><p>Graphic Designer & Creative Strategist based in Indonesia.</p></div>
-                <div class="footer-social">
-                    <p>Connect</p>
-                    <div class="social-links"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a></div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-links-small"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-                <p>&copy; 2026 Muhamad Zuhri Cahya Sumirat.</p>
-            </div>
-        </div>
+    <footer class="footer-lite">
+      <div class="global-container">
+        <p>&copy; 2026 Muhamad Zuhri Cahya Sumirat. All Rights Reserved.</p>
+      </div>
     </footer>
 
     <script src="../js/script.js"></script>
-</body>
+  </body>
 </html>
